@@ -1,0 +1,36 @@
+import org.apache.spark.SparkContext
+import org.apache.spark.sql.{DataFrame, SparkSession}
+
+object Task5 {
+	def main(args: Array[String]) = {
+	
+		val appName = "Task 5"
+		val spark = SparkSession.builder.
+			master("local").
+			appName(appName).
+			getOrCreate()
+		val sc = spark.sparkContext
+		
+		try {
+					
+			// Load the attached dataset into a dataframe.
+			val filePath = args(0)
+			val usDF = spark.read.format("csv").option("inferSchema","true").option("header","true").load(filePath)
+
+			// Remove the duplicate rows from the Dataset.
+			val withoutDup = usDF.dropDuplicates()
+			withoutDup.count
+
+			// Remove the rows having invalid email ids.
+
+
+			// Remove http:// from the web column
+			val webDF = withoutDup.withColumn("web_mod",regexp_replace($"web","http://","")).drop($"web")
+
+			// Write the final result to a Hive ORC table (Table should be Partitioned based on state column)
+			
+		} finally {
+			spark.stop()
+		}
+	}
+}
