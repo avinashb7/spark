@@ -21,7 +21,9 @@ object Task4 {
 			val myRDD = sc.parallelize(myList.map {
 				case(name,sex,cost) => ((name,sex),cost)
 			}).reduceByKey(_ + _)
+			
 			myRDD.foreach(println)
+			
 		} finally {
 			spark.stop()
 		}
