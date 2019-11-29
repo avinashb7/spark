@@ -25,6 +25,9 @@ object Task1 {
 			val splitRDD = bankRDD.map(_.split(";"))
 			
 			// Find total number of fields in the record
+			val bankDF = spark.read.format("csv").option("delimiter",";").option("inferSchema","true").option("header","true").load(("/FileStore/tables/bank.csv"))
+			println(bankDF.columns.size)
+			bankDF.show
 			
 			// Total number of customers who got credit and who could not get credit.
 			
