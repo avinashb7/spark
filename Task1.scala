@@ -29,6 +29,7 @@ object Task1 {
 			// Total number of customers who got credit and who could not get credit.
 			
 			// Find how many people are married, employed and educated who got the loan and who could not get the loan.
+			
 		} finally {
 			spark.stop()
 		}
