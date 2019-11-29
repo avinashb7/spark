@@ -21,7 +21,11 @@ object Task2 {
 			
 			// Create a DataFrame of Customer objects from the RDD by mapping to case class Customer.
 			// Convert the RDD to DataFrame
-			val custDF = custRDD.map(_.split(",")).map(a => Customer(a(0).trim.toInt,a(1).trim.toString,a(2).trim.toString,a(3).trim.toString,a(4).trim.trim.toInt)).toDF()
+			val custDF = custRDD.map(_.split(",")).map(a => Customer(a(0).trim.toInt,
+				a(1).trim.toString,
+				a(2).trim.toString,
+				a(3).trim.toString,
+				a(4).trim.trim.toInt)).toDF()
 
 			// Register DataFrame as a table.
 			custDF.createOrReplaceTempView("customer")
