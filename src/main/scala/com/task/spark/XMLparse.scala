@@ -26,8 +26,8 @@ object XMLparse {
       
       //Read the data using databricks package, import the package and add it in pom.xml
       val xmlFile = spark.read.format("com.databricks.spark.xml")
-        .option("rowTag", "taxa")
-        .load(inputFile)
+                    .option("rowTag", "taxa")
+                    .load(inputFile)
       
       //Verify the Schema
       xmlFile.printSchema
@@ -56,7 +56,8 @@ object XMLparse {
       */
       
       //Flatten the "taxon" column using explode and drop the original column if required.
-      val xmlFlat = xmlFile.withColumn("taxon_col",explode($"taxon._id")).drop($"taxon")
+      val xmlFlat = xmlFile.withColumn("taxon_col",explode($"taxon._id"))
+                    .drop($"taxon")
 
       xmlFlat.show(5)
       /* Final output
