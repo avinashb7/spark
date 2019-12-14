@@ -50,6 +50,14 @@
             <artifactId>spark-sql_2.11</artifactId>
             <version>2.4.4</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.databricks/spark-xml -->
+        <dependency>
+            <groupId>com.databricks</groupId>
+            <artifactId>spark-xml_2.11</artifactId>
+            <version>0.6.0</version>
+        </dependency>
+
     </dependencies>
 
 
