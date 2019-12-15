@@ -86,9 +86,10 @@ object XMLparse {
         |        virilis sbg|
         |        picticornis|
         |        montana sbg|
-          +-------------------+
+        +-------------------+
       */
-      
+      xmlFlat.select($"_id",$"taxon_col._VALUE" as "value",$"taxon_col._id" as "id",$"taxon_col._idref" as "idref").show
+
       //Write to any file or database if required.
       
     } finally {
