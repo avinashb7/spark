@@ -71,6 +71,23 @@ object XMLparse {
         |taxa|D_polychaeta|
         +----+------------+
       */
+
+      // To check the distinct values in the column.
+      val distinctID = xmlFlat.select($"_id").distinct()
+      distinctID.show()
+      /*
+        +-------------------+
+        |                _id|
+        +-------------------+
+        |            ingroup|
+        |         virilis gr|
+        |arizonae mojavensis|
+        |               taxa|
+        |        virilis sbg|
+        |        picticornis|
+        |        montana sbg|
+          +-------------------+
+      */
       
       //Write to any file or database if required.
       
