@@ -1,0 +1,4 @@
+spark-submit \
+--class com.task.spark.XMLparse \
+file:///home/training/Desktop/quest-task/demo-1.0-SNAPSHOT-jar-with-dependencies.jar \
+file:///home/training/Desktop/spark_xml/partitioned_all_spp.xml
